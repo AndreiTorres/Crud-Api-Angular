@@ -1,0 +1,80 @@
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    </button>
+    <span>Gestionar libros</span>
+    <span class="example-spacer"></span>
+    <button class="button-header" mat-raised-button color="warn" (click)="generarReporte()">Generar reporte PDF</button>
+    <button  class="button-header" mat-raised-button color="warn"  (click)="openDialog()" >Agregar libro</button>
+  </mat-toolbar>
+
+  <div class="container">
+    <div style="margin-top: 10px;">
+      <mat-form-field appearance="standard">
+        <mat-label>Filtro</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+      </mat-form-field>
+      
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+      
+       
+          <ng-container matColumnDef="Portada">
+            <th mat-header-cell *matHeaderCellDef >Portada</th>
+            <td mat-cell *matCellDef="let row"><img class="portada"  src="{{row.portada}}" alt="">  </td>
+          </ng-container>
+      
+         
+          <ng-container matColumnDef="Isbn">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>ISBN</th>
+            <td mat-cell *matCellDef="let row"> {{row.isbn}} </td>
+          </ng-container>
+      
+      
+          <ng-container matColumnDef="Titulo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Titulo</th>
+            <td mat-cell *matCellDef="let row"> {{row.titulo}} </td>
+          </ng-container>
+      
+          
+          <ng-container matColumnDef="Autor">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Autor</th>
+            <td mat-cell *matCellDef="let row"> {{row.autor}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Precio">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Precio</th>
+            <td mat-cell *matCellDef="let row"> {{row.precio | currency}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Genero">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Genero</th>
+            <td mat-cell *matCellDef="let row"> {{row.genero}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Acción</th>
+            <td mat-cell *matCellDef="let row"> 
+              <button mat-icon-button color="warn" (click)="editarLibro(row)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="borrarLibro(row.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+          
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No hay libros en el inventario "{{input.value}}"</td>
+          </tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+      </div>
+    </div>
+  </div>
+
+  

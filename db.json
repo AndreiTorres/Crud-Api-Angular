@@ -1,0 +1,42 @@
+{
+  "libros": [
+    {
+      "isbn": "2",
+      "titulo": "Harry Potter",
+      "autor": "JK Rowling",
+      "descripcion": "Libro del amor",
+      "precio": 30,
+      "portada": "https://m.guiadelocio.com/var/guiadelocio.com/storage/images/cine/archivo-peliculas/harry-potter-y-la-piedra-filosofal/39102729-37-esl-ES/harry-potter-y-la-piedra-filosofal.jpg",
+      "genero": "Terror",
+      "id": 1
+    },
+    {
+      "isbn": "3",
+      "titulo": "El señor",
+      "autor": "JK Rowling",
+      "descripcion": "Libro de sueños",
+      "precio": 5,
+      "portada": "https://m.guiadelocio.com/var/guiadelocio.com/storage/images/cine/archivo-peliculas/harry-potter-y-la-piedra-filosofal/39102729-37-esl-ES/harry-potter-y-la-piedra-filosofal.jpg",
+      "genero": "Masculino",
+      "id": 2
+    }
+  ],
+  "usuarios": [
+    {
+      "usuario": "jesus",
+      "contrasena": "ddd",
+      "email": "pruebacorreo@outlook.com",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

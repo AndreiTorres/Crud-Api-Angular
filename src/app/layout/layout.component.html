@@ -1,0 +1,18 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<nz-layout>
+    <nz-header>
+      <div class="logo"></div> 
+      <ul nz-menu nzTheme="dark" nzMode="horizontal" responsive >
+        <li [routerLink]="['/libros']" rel="no-refresh"  nz-menu-item>Libros</li>
+        <li [routerLink]="['/usuarios']"  rel="no-refresh" nz-menu-item>Usuarios</li>               
+    </ul>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+     <nz-footer>©2022 TheBookStore Todos los derechos reservados</nz-footer> 
+  </nz-layout>
+
