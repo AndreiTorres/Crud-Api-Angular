@@ -21,24 +21,24 @@ export class DialogComponent implements OnInit {
   ngOnInit(): void {
     this.libroForm = this.formBuilder.group({
       isbn: new FormControl('', [Validators.required]),    
-      titulo: new FormControl('', [Validators.required]),    
-      autor: new FormControl('', [Validators.required]),    
-      descripcion: new FormControl('', [Validators.required]),    
-      precio: new FormControl('', [Validators.required]),    
-      portada: new FormControl('', [Validators.required]),    
-      genero: new FormControl('', [Validators.required]),    
+      title: new FormControl('', [Validators.required]),    
+      author: new FormControl('', [Validators.required]),    
+      description: new FormControl('', [Validators.required]),    
+      price: new FormControl('', [Validators.required]),    
+      image: new FormControl('', [Validators.required]),    
+      gender: new FormControl('', [Validators.required]),    
     })
 
     if (this.datosEditados) {
       this.accion = "Formulario actualizar libro";
       this.accionBtn = "Actualizar";
       this.libroForm.controls['isbn'].setValue(this.datosEditados.isbn);
-      this.libroForm.controls['titulo'].setValue(this.datosEditados.titulo);
-      this.libroForm.controls['autor'].setValue(this.datosEditados.autor);
-      this.libroForm.controls['descripcion'].setValue(this.datosEditados.descripcion);
-      this.libroForm.controls['precio'].setValue(this.datosEditados.precio);
-      this.libroForm.controls['portada'].setValue(this.datosEditados.portada);
-      this.libroForm.controls['genero'].setValue(this.datosEditados.genero);
+      this.libroForm.controls['title'].setValue(this.datosEditados.title);
+      this.libroForm.controls['author'].setValue(this.datosEditados.author);
+      this.libroForm.controls['description'].setValue(this.datosEditados.description);
+      this.libroForm.controls['price'].setValue(this.datosEditados.price);
+      this.libroForm.controls['image'].setValue(this.datosEditados.image);
+      this.libroForm.controls['gender'].setValue(this.datosEditados.gender);
     }
   }
 

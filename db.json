@@ -1,32 +1,32 @@
 {
   "libros": [
     {
-      "isbn": "2",
-      "titulo": "Harry Potter",
-      "autor": "JK Rowling",
-      "descripcion": "Libro del amor",
-      "precio": 30,
-      "portada": "https://m.guiadelocio.com/var/guiadelocio.com/storage/images/cine/archivo-peliculas/harry-potter-y-la-piedra-filosofal/39102729-37-esl-ES/harry-potter-y-la-piedra-filosofal.jpg",
-      "genero": "Terror",
+      "isbn": "1",
+      "title": "Harry Potter",
+      "author": "JK Rawling",
+      "description": "Libro",
+      "price": 30,
+      "image": "https://m.guiadelocio.com/var/guiadelocio.com/storage/images/cine/archivo-peliculas/harry-potter-y-la-piedra-filosofal/39102729-37-esl-ES/harry-potter-y-la-piedra-filosofal.jpg",
+      "gender": "terror",
       "id": 1
     },
     {
-      "isbn": "3",
-      "titulo": "El señor",
-      "autor": "JK Rowling",
-      "descripcion": "Libro de sueños",
-      "precio": 5,
-      "portada": "https://m.guiadelocio.com/var/guiadelocio.com/storage/images/cine/archivo-peliculas/harry-potter-y-la-piedra-filosofal/39102729-37-esl-ES/harry-potter-y-la-piedra-filosofal.jpg",
-      "genero": "Masculino",
+      "isbn": "2",
+      "title": "El señor",
+      "author": "Andrei",
+      "description": "aaaaa",
+      "price": 43,
+      "image": "https://m.guiadelocio.com/var/guiadelocio.com/storage/images/cine/archivo-peliculas/harry-potter-y-la-piedra-filosofal/39102729-37-esl-ES/harry-potter-y-la-piedra-filosofal.jpg",
+      "gender": "accion",
       "id": 2
     }
   ],
   "usuarios": [
     {
-      "usuario": "jesus",
-      "contrasena": "ddd",
-      "email": "pruebacorreo@outlook.com",
-      "id": 2
+      "userName": "andrei",
+      "password": "mamama",
+      "email": "rootcorreo@outlook.com",
+      "id": 1
     }
   ],
   "comments": [

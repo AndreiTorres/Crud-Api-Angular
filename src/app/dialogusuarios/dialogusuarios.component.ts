@@ -19,16 +19,16 @@ export class DialogusuariosComponent implements OnInit {
 
   ngOnInit(): void {
     this.usuarioForm = this.formBuilder.group({
-      usuario: new FormControl('', [Validators.required]),    
-      contrasena: new FormControl('', [Validators.required]),    
+      userName: new FormControl('', [Validators.required]),    
+      password: new FormControl('', [Validators.required]),    
       email: new FormControl('', [Validators.required]),     
     })
 
     if (this.datosEditados) {
       this.accion = "Formulario actualizar usuario"
       this.accionBtn = "Actualizar";
-      this.usuarioForm.controls['usuario'].setValue(this.datosEditados.usuario);
-      this.usuarioForm.controls['contrasena'].setValue(this.datosEditados.contrasena);
+      this.usuarioForm.controls['userName'].setValue(this.datosEditados.userName);
+      this.usuarioForm.controls['password'].setValue(this.datosEditados.password);
       this.usuarioForm.controls['email'].setValue(this.datosEditados.email);
     }
   }
