@@ -13,7 +13,7 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class LibrosComponent implements OnInit {
 
-  displayedColumns: string[] = ['Portada', 'Isbn', 'Titulo', 'Autor',  'Precio', 'Genero', 'action'];
+  displayedColumns: string[] = ['Portada', 'Isbn', 'Titulo', 'Autor', 'Descripcion', 'Precio', 'action'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -40,7 +40,7 @@ export class LibrosComponent implements OnInit {
     this.apiLibros.getLibro()
     .subscribe({
       next: (res) => {
-        this.dataSource = new MatTableDataSource(res);
+        this.dataSource = new MatTableDataSource(res.data);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },

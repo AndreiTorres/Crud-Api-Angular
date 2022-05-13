@@ -25,8 +25,7 @@ export class DialogComponent implements OnInit {
       author: new FormControl('', [Validators.required]),    
       description: new FormControl('', [Validators.required]),    
       price: new FormControl('', [Validators.required]),    
-      image: new FormControl('', [Validators.required]),    
-      gender: new FormControl('', [Validators.required]),    
+      image: new FormControl('', [Validators.required]),      
     })
 
     if (this.datosEditados) {
@@ -38,7 +37,6 @@ export class DialogComponent implements OnInit {
       this.libroForm.controls['description'].setValue(this.datosEditados.description);
       this.libroForm.controls['price'].setValue(this.datosEditados.price);
       this.libroForm.controls['image'].setValue(this.datosEditados.image);
-      this.libroForm.controls['gender'].setValue(this.datosEditados.gender);
     }
   }
 

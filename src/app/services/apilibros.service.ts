@@ -13,7 +13,7 @@ export class ApilibrosService {
   }
 
   getLibro() {
-    return this.http.get<any>("http://localhost:3000/libros/");
+    return this.http.get<any>("http://localhost:3000/api/books");
   }
 
   putLibro(libro: any, id: number) {
