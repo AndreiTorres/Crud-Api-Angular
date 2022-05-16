@@ -1,0 +1,36 @@
+<div class="container" id="container">
+ 
+
+    <div class="form-container">
+      <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+        <h1>Iniciar Sesión</h1>
+        <div class="social-container"></div>
+        <span>Bienvenido de nuevo</span>
+        
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Por favor ingresa tu correo!">
+    
+            <nz-input-group class="input-usuario">
+              <div class="control">
+                <input type="text" nz-input formControlName="userName" placeholder=" Email"  autocomplete="off"/>
+              </div>
+            </nz-input-group>
+          </nz-form-control>
+       </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Por favor ingresa tu contraseña!">
+            <nz-input-group>
+              <input  type="password" nz-input formControlName="password" placeholder=" Contraseña" autocomplete="off"/>
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+          
+          <nz-form-item >
+            <nz-form-control >
+              <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Inicia sesión</button>
+         
+            </nz-form-control>
+          </nz-form-item>
+      </form>
+
+    </div>

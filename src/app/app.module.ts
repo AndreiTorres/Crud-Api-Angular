@@ -32,6 +32,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { DialogusuariosComponent } from './dialogusuarios/dialogusuarios.component';
+import { LoginComponent } from './login/login.component';
 registerLocaleData(en);
 
 @NgModule({
@@ -41,7 +42,8 @@ registerLocaleData(en);
     LibrosComponent,
     UsuariosComponent,
     DialogComponent,
-    DialogusuariosComponent
+    DialogusuariosComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
