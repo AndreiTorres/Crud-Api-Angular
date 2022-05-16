@@ -4,10 +4,10 @@
     <nz-header>
       <div class="logo"></div> 
       <ul nz-menu nzTheme="dark" nzMode="horizontal" responsive >
-        <li  [routerLink]="['/login']" rel="no-refresh" nz-menu-item> <i nz-icon nzType="user" nzTheme="outline"></i> Iniciar Sesion </li>
-        <li [routerLink]="['/libros']" rel="no-refresh"  nz-menu-item>Libros</li>
-        <li [routerLink]="['/usuarios']"  rel="no-refresh" nz-menu-item>Usuarios</li> 
-        <li  nz-menu-item >Cerrar sesión</li>                  
+        <li  *ngIf="!isLoggedIn" [routerLink]="['/login']" rel="no-refresh" nz-menu-item> <i nz-icon nzType="user" nzTheme="outline"></i> Iniciar Sesion </li>
+        <li  *ngIf="isLoggedIn" [routerLink]="['/libros']" rel="no-refresh"  nz-menu-item>Libros</li>
+        <li *ngIf="isLoggedIn" [routerLink]="['/usuarios']"  rel="no-refresh" nz-menu-item>Usuarios</li> 
+        <li  *ngIf="isLoggedIn" nz-menu-item (click)="cerrarSesion()" >Cerrar sesión</li>                  
     </ul>
     </nz-header>
     <nz-content>

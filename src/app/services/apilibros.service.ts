@@ -1,15 +1,19 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { TokenStorageService } from './token-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApilibrosService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private tokenStorage: TokenStorageService) { }
 
   postLibro(libro: any) {
-    return this.http.post<any>("http://localhost:3000/libros/", libro);
+    let header = new HttpHeaders().set('user_token', this.tokenStorage.obtenerToken() || '');
+    header.set("Content-Type", "application/json");
+    return this.http.post<any>("http://localhost:3000/api/books", libro,  {headers: header});
   }
 
   getLibro() {
@@ -17,10 +21,14 @@ export class ApilibrosService {
   }
 
   putLibro(libro: any, id: number) {
-    return this.http.put<any>("http://localhost:3000/libros/" + id, libro);
+    let body = libro;
+    let header = new HttpHeaders().set('user_token', this.tokenStorage.obtenerToken() || '');
+    return this.http.put<any>("http://localhost:3000/api/books/" + id, body,  {headers: header});
   }
 
   deleteLibro(id: number) {
-    return this.http.delete<any>("http://localhost:3000/libros/" + id);
+    let header = new HttpHeaders().set('user_token', this.tokenStorage.obtenerToken() || '');
+    return this.http.delete<any>("http://localhost:3000/api/books/" + id,  {headers: header});
+    
   }
 }

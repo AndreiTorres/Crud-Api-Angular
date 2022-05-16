@@ -20,6 +20,7 @@ export class DialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.libroForm = this.formBuilder.group({
+      id: new FormControl('', [Validators.required]),
       isbn: new FormControl('', [Validators.required]),    
       title: new FormControl('', [Validators.required]),    
       author: new FormControl('', [Validators.required]),    
@@ -50,7 +51,7 @@ export class DialogComponent implements OnInit {
             this.libroForm.reset();
             this.dialogRef.close('save');
           },
-          error: () => {
+          error: (err) => {
             alert("Error al agregar el libro");
           }
         })
