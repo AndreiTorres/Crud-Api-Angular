@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -6,15 +6,21 @@ import { ApilibrosService } from '../services/apilibros.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import html2canvas from 'html2canvas';
+import {jsPDF} from 'jspdf';
+import autoTable from 'jspdf-autotable'
+
 @Component({
   selector: 'app-libros',
   templateUrl: './libros.component.html',
   styleUrls: ['./libros.component.css']
 })
 export class LibrosComponent implements OnInit {
-
+  
   displayedColumns: string[] = ['Portada', 'Isbn', 'Titulo', 'Autor', 'Descripcion', 'Precio', 'action'];
   dataSource: MatTableDataSource<any>;
+  libros: [] = [];
+  
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -41,6 +47,7 @@ export class LibrosComponent implements OnInit {
     .subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res.data);
+        this.libros = res.data;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
@@ -85,7 +92,33 @@ export class LibrosComponent implements OnInit {
   }
 
   generarReporte() {
-    console.log("Reporte en PDF");
+    this.apiLibros.getLibro()
+    .subscribe({
+      next: (res) => {
+        let doc = new jsPDF();
+        let col = ["Isbn", "Titulo", "Autor", "Precio"]
+        let rows : any = [];
+
+        let texto = "Inventario de libros The BookStore";
+        let fecha = new Date();
+        texto += '\t' + "Fecha: " + fecha.getDate() + "/" + (fecha.getMonth() + 1) + "/" + fecha.getFullYear();
+        texto += '\n';
+        texto += '\n'; 
+        doc.text(texto, 10, 10);
+
+        res.data.forEach((element: any) => {
+          let temp = [element.isbn, element.title, element.author, "$" + element.price];
+          rows.push(temp);
+        });
+
+        autoTable(doc, {head: [col], body: rows})
+        
+        doc.save(fecha.getDate() + "-" + (fecha.getMonth() + 1) + "-" + fecha.getFullYear() + "-" + "reporte");
+      },
+      error: (err) => {
+        alert("No se pudo generar el reporte");
+      }
+    })
   }
 
 
