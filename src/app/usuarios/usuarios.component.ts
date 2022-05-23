@@ -7,6 +7,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { ApiusuariosService } from '../services/apiusuarios.service';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-usuarios',
@@ -89,7 +90,19 @@ export class UsuariosComponent implements OnInit {
   }
 
   generarReporte() {
-    console.log("Reporte en excel");
+    this.apiUsuarios.getUsuario()
+    .subscribe({
+      next: (res) => {
+        const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(res.data);
+        const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+        XLSX.writeFile(workbook, this.toExportFileName("reporte")); 
+      }
+    })
+  }
+
+  toExportFileName(excelFileName: string): string {
+    var date = new Date();
+    return `${excelFileName}_${date.getMonth() + 1}${date.getDate()}${date.getFullYear()}.xlsx`;
   }
 
 }
