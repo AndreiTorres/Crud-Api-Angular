@@ -36,7 +36,7 @@ export class DialogusuariosComponent implements OnInit {
   agregarUsuario() {
     if (!this.datosEditados) {
       if (this.usuarioForm.valid) {
-        this.apiUsuario.postUsuario(this.usuarioForm.value)
+        this.apiUsuario.postUsuario(this.usuarioForm.value.userName, this.usuarioForm.value.email, this.usuarioForm.value.password)
         .subscribe({
           next: (res) => {
             alert("Usuario agregado");
@@ -63,6 +63,7 @@ export class DialogusuariosComponent implements OnInit {
         this.dialogRef.close('update');
       },
       error: () => {
+        console.log("Error")
         alert("Error al actualizar el usuario")
       }
     })

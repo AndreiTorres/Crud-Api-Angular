@@ -42,7 +42,7 @@ export class UsuariosComponent implements OnInit {
     this.apiUsuarios.getUsuario()
     .subscribe({
       next: (res) => {
-        this.dataSource = new MatTableDataSource(res);
+        this.dataSource = new MatTableDataSource(res.data);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
@@ -60,6 +60,8 @@ export class UsuariosComponent implements OnInit {
     }).afterClosed().subscribe(val => {
       if (val === 'update') {
         this.obtenerTodosUsuarios();
+      } else {
+        console.log(val)
       }
     })
   }
