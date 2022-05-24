@@ -33,6 +33,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { DialogusuariosComponent } from './dialogusuarios/dialogusuarios.component';
 import { LoginComponent } from './login/login.component';
+import { QRCodeModule } from 'angular2-qrcode';
+
 registerLocaleData(en);
 
 @NgModule({
@@ -66,7 +68,8 @@ registerLocaleData(en);
     NzButtonModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    QRCodeModule
   ],
   entryComponents: [DialogComponent],
   providers: [{ provide: NZ_I18N, useValue: en_US }, {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true, direction: 'ltr'}}],
